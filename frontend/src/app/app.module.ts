@@ -3,10 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SidebarComponent } from './interface/sidebar/sidebar.component';
+import { ChatBoxComponent } from './interface/chat-box/chat-box.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SidebarComponent,
+    ChatBoxComponent
   ],
   imports: [
     BrowserModule,
