@@ -1,1 +1,22 @@
-<p>sidebar works!</p>
+<mat-sidenav mode="side" class="sidebar" opened>
+    <mat-action-list>
+        <div *ngFor="let contact of chatList, let even = even, let last = last">
+            <button mat-list-item class="chatItem">
+                <i class="far fa-user-circle fa-3x pfp"></i>
+                <div class="col">
+                    <div class="row-2 contact">
+                        {{contact}}
+                    </div>
+                    <div class="row-1 message">
+                        <i *ngIf="even" class="fas fa-level-up-alt" style="color: blue"></i>
+                        <i *ngIf="!even" class="fas fa-level-down-alt" style="color: green"></i>
+                        {{loremIpsum}}
+                    </div>
+                </div>
+            </button>
+            <mat-divider [inset]="!last" class="divider">
+            </mat-divider>
+        </div>
+        <div class="bottomText">chatBoot: a botinha brasileira!</div>
+    </mat-action-list>
+</mat-sidenav>
