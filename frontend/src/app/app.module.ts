@@ -6,12 +6,14 @@ import { SidebarComponent } from './interface/sidebar/sidebar.component';
 import { ChatBoxComponent } from './interface/chat-box/chat-box.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InterfaceModule } from './interface/interface.module';
+import { ChatMiniatureComponent } from './interface/sidebar/chat-miniature/chat-miniature.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
-    ChatBoxComponent
+        ChatBoxComponent,
+        ChatMiniatureComponent
   ],
   imports: [
     BrowserModule,

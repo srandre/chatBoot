@@ -3,10 +3,6 @@
     margin-right: 15px;
 }
 
-.pfp {
-    margin-right: 15px;
-}
-
 .bottomText {
     text-align: center;
     bottom: 0;
@@ -17,22 +13,4 @@
 .divider {
     margin-right: 20px;
     margin-left: 20px;
-}
-
-.chatItem {
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
-.contact, .message {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    width:170px;
-}
-
-.message {
-    font-size: 80%;
-    font-weight: lighter;
-    color: grey;
 }

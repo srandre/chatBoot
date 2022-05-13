@@ -1,0 +1,22 @@
+.contact,
+.message {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 170px;
+}
+
+.message {
+    font-size: 80%;
+    font-weight: lighter;
+    color: grey;
+}
+
+.chatItem {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.pfp {
+    margin-right: 15px;
+}

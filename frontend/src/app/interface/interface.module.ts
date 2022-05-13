@@ -15,7 +15,7 @@ import { MatDividerModule } from '@angular/material/divider'
         MatSidenavModule,
         MatListModule,
         MatCardModule,
-        MatDividerModule
+        MatDividerModule,
     ]
 })
 export class InterfaceModule { }

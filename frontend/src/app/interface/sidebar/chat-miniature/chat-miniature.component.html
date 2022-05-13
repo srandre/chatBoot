@@ -1,0 +1,13 @@
+<button mat-list-item class="chatItem">
+    <i class="far fa-user-circle fa-3x pfp"></i>
+    <div class="col">
+        <div class="row-2 contact">
+            {{lastMessage.sender.name}}
+        </div>
+        <div class="row-1 message">
+            <i *ngIf="even" class="fas fa-level-up-alt" style="color: blue"></i>
+            <i *ngIf="!even" class="fas fa-level-down-alt" style="color: green"></i>
+            {{loremIpsum}}
+        </div>
+    </div>
+</button>
