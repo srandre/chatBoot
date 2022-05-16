@@ -15,7 +15,7 @@
 .text {
     height: 50%;
     width: 50%;
-    position: absolute;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -75,7 +75,7 @@
     height: 70px;
     width: 200px;
     background-color: var(--main-dark-color);
-    position: absolute;
+
     border-radius: 50px;
 }
 
@@ -86,7 +86,6 @@
     border-left: 2vh solid transparent;
     border-right: 2vh solid transparent;
     border-top: 10vh solid var(--main-dark-color);
-    position: absolute;
     top: 45%;
     left: -10%;
     transform: rotate(60deg);
@@ -96,9 +95,10 @@
     height: 70px;
     width: 200px;
     background-color: var(--main-light-color);
-    position: absolute;
+
     border-radius: 30px;
     right: 0;
+    float: right;
 }
 
 .right-point {
@@ -107,8 +107,9 @@
     border-left: 2vh solid transparent;
     border-right: 2vh solid transparent;
     border-top: 10vh solid var(--main-light-color);
-    position: absolute;
-    top: 45%;
+    position: relative;
+    margin-left: 170px;
     right: -10%;
+    bottom: 5px;
     transform: rotate(-60deg);
 }
