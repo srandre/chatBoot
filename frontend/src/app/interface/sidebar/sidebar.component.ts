@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Message } from 'src/app/models/Message';
+import { User } from 'src/app/models/User';
 
 @Component({
     selector: 'app-sidebar',
@@ -7,6 +8,8 @@ import { Message } from 'src/app/models/Message';
     styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
+    @Input() user: User = new User();
+
     loremIpsum: string = 'Lorem ipsum dolor sit amet consectetur adipiscing elit Aenean pharetra magna et dapibus venenatis'
     public chatList: Message[] = []
     constructor() { }

@@ -3,7 +3,7 @@
         <img width="300px" src="../assets/logo.png">
     </mat-toolbar>
     <mat-sidenav-container class="fullscreen">
-        <app-sidebar></app-sidebar>
+        <app-sidebar [user]="user"></app-sidebar>
         <app-chat-box [user]="user"></app-chat-box>
     </mat-sidenav-container>
 </body>
