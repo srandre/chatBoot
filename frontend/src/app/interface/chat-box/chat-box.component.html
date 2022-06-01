@@ -1,16 +1,17 @@
 <mat-sidenav-content class="chatBox">
     <mat-divider class="divider"></mat-divider>
-    <div class="box">
-        <div *ngFor="let message of messages">
+    <div class="col box">
+        <div class="row" *ngFor="let message of messages">
             <div [ngClass]="message.sender.email == user.email ? 'dialog-2' : 'dialog-1'">
-                <div class="text">{{message.text}}</div>
+                <div class="text message-text">{{message.text}}</div>
                 <div [ngClass]="message.sender.email == user.email ? 'right-point' : 'left-point'">
                 </div>
             </div>
         </div>
     </div>
     <div class="answer-box">
+        <input #messageInput type="text" class="msg-box text" (keyup.enter)="sendMessage(messageInput)">
     </div>
-    <i class="fa-4x send-circle fas fa-chevron-circle-right"></i>
+    <i (click)="sendMessage(messageInput)" class="fa-4x send-circle fas fa-chevron-circle-right" style="cursor: pointer"></i>
     <mat-divider class="divider"></mat-divider>
 </mat-sidenav-content>

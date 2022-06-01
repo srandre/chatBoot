@@ -47,4 +47,16 @@ export class ChatBoxComponent implements OnInit {
             })]
     }
 
+    sendMessage(message: any) {
+        if (message.value == '' || message.value == null) return;
+        this.messages.push(new Message({
+            sender: this.user1,
+            receiver: this.user2,
+            text: message.value,
+            timestamp: moment(),
+            wasRead: false
+        }))
+        message.value = ''
+    }
+
 }
