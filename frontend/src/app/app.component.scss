@@ -49,6 +49,26 @@
     padding-right: 10px;
 }
 
+.pfp-box {
+    width: 240px;
+    height: 60px;
+    border-radius: 30px;
+    padding: 5px;
+    background-color: rgb(216, 241, 216);
+    display: flex;
+}
+
+.bar {
+    height: auto;
+}
+
+.name {
+    position: relative;
+    bottom: 30%;
+    margin-left: 10px;
+    font-size: large;
+}
+
 .invalid {
     border: 1px solid red;
 }
@@ -57,6 +77,11 @@
     height: 36px;
     margin: 5px;
     width: 65%;
+}
+
+.logo {
+    position: relative;
+    right: -60%;
 }
 
 .name-button {
