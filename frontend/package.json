@@ -20,6 +20,8 @@
     "@angular/platform-browser": "~13.2.0",
     "@angular/platform-browser-dynamic": "~13.2.0",
     "@angular/router": "~13.2.0",
+    "alertifyjs": "^1.13.1",
+    "cors": "^2.8.5",
     "fontawesome-free": "^1.0.4",
     "moment": "^2.29.3",
     "rxjs": "~7.5.0",

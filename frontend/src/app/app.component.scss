@@ -3,6 +3,65 @@
     height: 100%;
 }
 
+.blur {
+    background: url('../assets/Blur.jpg')
+}
+
+.login-modal {
+    width: 400px;
+    height: 300px;
+    left: 35%;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 30vh;
+    background-color: rgb(240, 255, 255, 0.6);
+    display: flex;
+    padding-left: 70px;
+}
+
+.login-square {
+    padding-left: 30px;
+    padding-top: 40px;
+}
+
+.register {
+    padding-top: 30px !important;
+}
+
+.login-button {
+    float: right;
+    margin-right: 35px;
+    background-color: green;
+}
+
+.sprite {
+    padding-right: 10px;
+}
+
+.invalid {
+    border: 1px solid red;
+}
+
+input {
+    font-family: 'Trebuchet MS';
+    background-color: rgb(255, 255, 255, 1);
+    padding: 5px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+label {
+    font-family: 'Trebuchet MS';
+    color: black;
+    font-size: medium;
+    display: inline;
+    text-align: right;
+    padding-right: 10px;
+}
+
 body {
     height: 90vh;
     overflow: hidden !important;

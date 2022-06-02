@@ -2,7 +2,54 @@
     <mat-toolbar>
         <img width="300px" src="../assets/logo.png">
     </mat-toolbar>
-    <mat-sidenav-container class="fullscreen">
+    <div *ngIf="!user.signed" class="fullscreen blur">
+        <div class="login-modal">
+            <mat-tab-group>
+                <mat-tab label="Entrar">
+                    <div class="col login-square">
+                        <div class="row">
+                            <i class="fa fas fa-at sprite"></i>
+                            <label>Email:</label>
+                            <input (keyup.enter)="login()" [(ngModel)]="user.email" type="email"
+                                [ngClass]="!isValidEmail(user.email) && submitted ? 'invalid' : ''">
+                        </div>
+                        <div class="row">
+                            <i class="fa fas fa-key sprite"></i>
+                            <label>Senha:</label>
+                            <input (keyup.enter)="login()" [(ngModel)]="password" type="password"
+                                [ngClass]="!password && submitted ? 'invalid' : ''">
+                        </div>
+                        <button (click)="login()" mat-raised-button color="primary" class="login-button">Login</button>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Registrar">
+                    <div class="col login-square register">
+                        <div class="row">
+                            <i class="fa fas fa-at sprite"></i>
+                            <label>Email:</label>
+                            <input (keyup.enter)="signup()" [(ngModel)]="user.email" type="email"
+                                [ngClass]="!isValidEmail(user.email) && submitted ? 'invalid' : ''">
+                        </div>
+                        <div class="row">
+                            <i class="fa fas fa-key sprite"></i>
+                            <label>Senha:</label>
+                            <input (keyup.enter)="signup()" [(ngModel)]="password" type="password"
+                                [ngClass]="!password && submitted ? 'invalid' : ''">
+                        </div>
+                        <div class="row">
+                            <i class="fa fas fa-redo sprite"></i>
+                            <label>Senha:</label>
+                            <input (keyup.enter)="signup()" [(ngModel)]="passwordConfirm" type="password"
+                                [ngClass]="!passwordConfirm && submitted ? 'invalid' : ''">
+                        </div>
+                        <button (click)="signup()" mat-raised-button color="primary"
+                            class="login-button">Registrar</button>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+    <mat-sidenav-container *ngIf="user.signed" class="fullscreen">
         <app-sidebar [user]="user"></app-sidebar>
         <app-chat-box [user]="user"></app-chat-box>
     </mat-sidenav-container>
