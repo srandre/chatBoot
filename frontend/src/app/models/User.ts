@@ -5,9 +5,8 @@ export class User {
 
     constructor(user?: any) {
         if (user) {
-            this.name = user.name;
-            this.email = user.email;
-            this.signed = false;
+            this.name = user.name || "";
+            this.email = user.email || "";
         }
     }
 }

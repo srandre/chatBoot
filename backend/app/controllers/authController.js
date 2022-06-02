@@ -14,12 +14,16 @@ module.exports = {
         // generate salt to hash password
         const salt = await bcrypt.genSalt(10);
         // now we set user password to hashed password
-        Object.assign(user.password, { password: await bcrypt.hash(user.password, salt) })
+        user.password = await bcrypt.hash(user.password, salt)
         return await db.User.create(user);
     },
 
     login: async function (signedUser, requestedUser) {
         return await bcrypt.compare(requestedUser.password, signedUser.password);
+    },
+
+    changeName: async function (user) {
+        return await db.User.update(user, { where: { email: user.email } });
     },
 
     getMessages: async function (options) {

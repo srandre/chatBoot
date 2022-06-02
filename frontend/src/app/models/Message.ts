@@ -10,9 +10,9 @@ export class Message {
 
     constructor(message?: any) {
         if (message) {
-            this.sender = new User(message.sender)
-            this.receiver = new User(message.receiver)
-            this.text = message.text
+            this.sender = new User(message.sender);
+            this.receiver = new User(message.receiver);
+            this.text = message.text;
             this.timestamp = message.timestamp;
             this.wasRead = message.wasRead;
         }

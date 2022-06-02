@@ -14,6 +14,7 @@ export class AppComponent {
     submitted = false;
     password = "";
     passwordConfirm = "";
+    choosingName = false;
 
     constructor(private auth: AuthService) { }
 
@@ -27,9 +28,12 @@ export class AppComponent {
             email: this.user.email,
             password: this.password
         }).subscribe(result => {
-            console.log(result)
+            this.submitted = false;
             this.user = new User(result);
-            this.user.signed = true;
+            if (this.user.name.length > 0)
+                this.user.signed = true;
+            else
+                this.choosingName = true;
             alertify.success('Sucesso!')
         }, error => {
             alertify.error(error.error.error)
@@ -67,7 +71,27 @@ export class AppComponent {
             email: this.user.email,
             password: this.password
         }).subscribe(result => {
-            alertify.success(result.message)
+            this.submitted = false;
+            this.user = new User(result);
+            this.choosingName = true;
+            alertify.success('Sucesso!')
+        }, error => {
+            alertify.error(error.error.error)
+        })
+    }
+
+    submitName() {
+        this.submitted = true;
+        if (this.user.name.length == 0) {
+            alertify.error('Por favor escolha um nome!')
+            return;
+        }
+
+        this.auth.changeName(this.user).subscribe(result => {
+            this.submitted = false;
+            this.choosingName = false;
+            this.user.signed = true;
+            alertify.success('Sucesso!')
         }, error => {
             alertify.error(error.error.error)
         })

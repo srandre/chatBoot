@@ -4,9 +4,9 @@
     </mat-toolbar>
     <div *ngIf="!user.signed" class="fullscreen blur">
         <div class="login-modal">
-            <mat-tab-group>
+            <mat-tab-group *ngIf="!choosingName">
                 <mat-tab label="Entrar">
-                    <div class="col login-square">
+                    <div class="col login">
                         <div class="row">
                             <i class="fa fas fa-at sprite"></i>
                             <label>Email:</label>
@@ -23,7 +23,7 @@
                     </div>
                 </mat-tab>
                 <mat-tab label="Registrar">
-                    <div class="col login-square register">
+                    <div class="col register">
                         <div class="row">
                             <i class="fa fas fa-at sprite"></i>
                             <label>Email:</label>
@@ -47,6 +47,20 @@
                     </div>
                 </mat-tab>
             </mat-tab-group>
+            <div *ngIf="choosingName">
+                <div class="col choose-name">
+                    <div class="row center-text">
+                        <label>Escolha um nome para seu perfil. Você pode alterar a qualquer
+                            hora!</label>
+                    </div>
+                    <div class="row">
+                        <input class="name-input" (keyup.enter)="submitName()" [(ngModel)]="user.name" type="text"
+                            [ngClass]="user.name.length == 0 && submitted ? 'invalid' : ''">
+                        <button (click)="submitName()" mat-raised-button color="primary"
+                            class="name-button">Submeter</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <mat-sidenav-container *ngIf="user.signed" class="fullscreen">

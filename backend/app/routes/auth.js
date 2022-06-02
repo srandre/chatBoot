@@ -3,7 +3,7 @@ const user = require('../controllers/authController');
 module.exports = async function (router) {
     // signup route
     router.route('/signup').post(async (req, res) => {
-        if (user.isNewUser(req.body) != null)
+        if (await user.isNewUser(req.body) != null)
             return res.status(400).send({ error: 'Usuário já existe!' })
         let out = await user.signup(req.body)
         return res.json(out)
@@ -20,5 +20,10 @@ module.exports = async function (router) {
         } else {
             res.status(401).json({ error: "Conta não encontrada ou senha incorreta!" });
         }
+    });
+
+    router.route('/changeName').post(async (req, res) => {
+        let out = await user.changeName(req.body)
+        return res.json(out)
     });
 }
