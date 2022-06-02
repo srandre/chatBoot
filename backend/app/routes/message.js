@@ -1,18 +1,18 @@
-const messages = require('../controllers/messageController');
+const message = require('../controllers/messageController');
 
-module.exports = function (router) {
-    router.route('/sendMessage').post((req, res) => {
-        let out = messages.sendMessage(req.body);
+module.exports = async function (router) {
+    router.route('/sendMessage').post(async (req, res) => {
+        let out = await message.sendMessage(req.body);
         return res.json(out);
     });
 
-    router.route('/getUnread').post((req, res) => {
-        let out = messages.getUnread(req.body);
+    router.route('/getUnread').post(async (req, res) => {
+        let out = await message.getUnread(req.body);
         return res.json(out);
     });
 
-    router.route('/getMessages').post((req, res) => {
-        let out = messages.getMessages(req.body);
+    router.route('/getMessages').post(async (req, res) => {
+        let out = await message.getMessages(req.body);
         return res.json(out);
     });
 }

@@ -2,18 +2,18 @@ const moment = require("moment");
 const db = require("../models");
 
 module.exports = {
-    sendMessage: function (options) {
+    sendMessage: async function (options) {
         if (options?.text?.length > 0) {
             let timestamp = moment();
             Object.assign(options, { timestamp: timestamp });
-            db.Message.create(options)
+            await db.Message.create(options)
             return timestamp;
         }
         return {};
     },
 
-    getUnread: function (options) {
-        db.Message.findAll({
+    getUnread: async function (options) {
+        return await db.Message.findAll({
             where: {
                 [Op.and]: [{
                     receiverEmail: options.receiverEmail,
@@ -25,8 +25,8 @@ module.exports = {
         })
     },
 
-    getMessages: function (options) {
-        db.Message.findAll({
+    getMessages: async function (options) {
+        return await db.Message.findAll({
             where: {
                 [Op.and]: [{
                     receiverEmail: options.receiverEmail,
