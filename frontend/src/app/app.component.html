@@ -3,7 +3,7 @@
         <div class="pfp-box">
             <div class="row">
                 <i class="far fa-user-circle fa-3x"></i>
-                <label class="name">{{user.name}}</label>
+                <label class="name" *ngIf="user.signed && !choosingName">{{user.name}}</label>
             </div>
         </div>
         <img class="logo" width="300px" src="../assets/logo.png">
