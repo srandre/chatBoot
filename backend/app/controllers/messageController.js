@@ -5,7 +5,7 @@ module.exports = {
     sendMessage: async function (options) {
         if (options?.text?.length > 0) {
             let timestamp = moment();
-            Object.assign(options, { timestamp: timestamp });
+            Object.assign(options, { wasRead: false, timestamp: timestamp });
             await db.Message.create(options)
             return timestamp;
         }
