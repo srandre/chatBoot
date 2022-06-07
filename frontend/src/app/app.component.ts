@@ -10,11 +10,7 @@ declare let alertify: any;
 })
 export class AppComponent {
     title = 'chatBoot';
-    user: User = {
-        email: 'andrelima1607@gmail.com',
-        name: 'Andre',
-        signed: true
-    };
+    user: User = new User();
     submitted = false;
     password = "";
     passwordConfirm = "";
