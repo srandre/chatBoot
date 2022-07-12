@@ -26,15 +26,7 @@ module.exports = {
         return await db.User.update(user, { where: { email: user.email } });
     },
 
-    getMessages: async function (options) {
-        await db.Message.findAll({
-            where: {
-                [Op.and]: [{
-                    receiverEmail: options.receiverEmail,
-                    senderEmail: options.senderEmail
-                }]
-            },
-            order: [['timestamp', 'DESC']]
-        })
+    getAll: async function () {
+        return await db.User.findAll()
     }
 }

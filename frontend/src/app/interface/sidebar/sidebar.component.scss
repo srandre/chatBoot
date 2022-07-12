@@ -1,21 +1,372 @@
-.sidebar {
-    width: 340px;
-    margin-top: 10px;
-    margin-left: 10px;
-    height: 81%;
-    margin-right: 15px;
-    border-radius: 30px;
-    display: flex;
+* {
+    box-sizing: border-box;
 }
 
-.bottomText {
-    text-align: center;
-    bottom: 0;
-    font-weight: lighter;
-    font-size: 80%;
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 90%;
 }
 
-.divider {
-    margin-right: 20px;
+/* Track */
+::-webkit-scrollbar-track {
+    background: #3b3e49;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+body {
+    background-color: #abd9e9;
+    font-family: Arial;
+}
+
+#container {
+    height: 90%;
+    font-size: 0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+aside {
+    height: 100%;
+    background-color: #3b3e49;
+    display: inline-block;
+    font-size: 15px;
+    vertical-align: top;
+    width: 30%;
+    border-radius: 5%;
+    margin-left: 5px;
+}
+
+main {
+    width: 90%;
+    height: 80%;
+    position: absolute;
+    display: inline-block;
+    font-size: 15px;
+    vertical-align: top;
+}
+
+aside header {
+    padding: 30px 20px;
+}
+
+aside input {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 50px 0 20px;
+    background-color: #5e616a;
+    border: none;
+    color: #fff;
+    background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1940306/ico_search.png);
+    background-repeat: no-repeat;
+    background-position: 90%;
+    background-size: 10%;
+    border-radius: 20%;
+}
+
+aside input::placeholder {
+    color: #fff;
+}
+
+aside ul {
+    padding-left: 0;
+    margin: 0;
+    list-style-type: none;
+    overflow-y: scroll;
+    height: 100%;
+}
+
+aside li {
+    padding: 10px 0;
+}
+
+aside li:hover {
+    background-color: #5e616a;
+    cursor: pointer;
+}
+
+h2 {
+    margin: 0;
+}
+
+h3 {
+    position: relative;
+    top: -10px;
+}
+
+aside li img {
+    border-radius: 50%;
     margin-left: 20px;
+    margin-right: 8px;
+}
+
+aside li div {
+    display: inline-block;
+    vertical-align: top;
+}
+
+aside li h2 {
+    font-size: 14px;
+    color: #fff;
+    font-weight: normal;
+    margin-bottom: 5px;
+}
+
+aside li h3 {
+    font-size: 12px;
+    color: #9296a0;
+    font-weight: normal;
+}
+
+.status {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 7px;
+}
+
+.green {
+    background-color: #58b666;
+}
+
+.orange {
+    background-color: #ff725d;
+}
+
+.blue {
+    background-color: #6fbced;
+    margin-right: 0;
+    margin-left: 7px;
+}
+
+main header {
+    height: 15%;
+    position: relative;
+    padding: 1%;
+    margin-bottom: 1%
+}
+
+main header img {
+    height: 100%;
+}
+
+main header>* {
+    display: inline-block;
+    vertical-align: top;
+}
+
+main header img:first-child {
+    border-radius: 50%;
+}
+
+main header img:last-child {
+    width: 24px;
+    margin-top: 8px;
+}
+
+main header div {
+    margin-left: 10px;
+    margin-right: 145px;
+}
+
+main header h2 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+main header h3 {
+    font-size: 14px;
+    font-weight: normal;
+    color: #7e818a;
+}
+
+#chat {
+    padding-left: 0;
+    margin: 0;
+    list-style-type: none;
+    overflow-y: scroll;
+    height: 70%;
+    width: 77%;
+    border-top: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+}
+
+#chat li {
+    padding: 10px 30px;
+}
+
+#chat h2,
+#chat h3 {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: normal;
+}
+
+#chat h3 {
+    color: black;
+    margin: 0;
+}
+
+#chat .entete {
+    margin-bottom: 5px;
+}
+
+#chat .message {
+    padding: 20px;
+    color: #fff;
+    line-height: 10px;
+    max-width: 90%;
+    display: inline-block;
+    text-align: left;
+    border-radius: 5px;
+}
+
+#chat .me {
+    text-align: right;
+}
+
+#chat .me .message {
+    background-color: #58b666;
+}
+
+#chat .you .message {
+    background-color: #6fbced;
+}
+
+#chat .triangle {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+}
+
+#chat .you .triangle {
+    border-color: transparent transparent #6fbced transparent;
+    margin-left: 2%;
+}
+
+#chat .me .triangle {
+    border-color: transparent transparent #58b666 transparent;
+    margin-left: 96%;
+}
+
+main footer {
+    height: 100%;
+    width: 100%;
+    padding: 20px 30px 10px 20px;
+    position: relative;
+}
+
+main footer textarea {
+    resize: none;
+    border: none;
+    display: block;
+    width: 100%;
+    height: 80px;
+    border-radius: 3px;
+    padding: 20px;
+    font-size: 13px;
+    margin-bottom: 13px;
+    background: lightgrey;
+}
+
+main footer textarea::placeholder {
+    color: red;
+}
+
+main footer img {
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+}
+
+main footer a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #6fbced;
+    vertical-align: top;
+    margin-left: 333px;
+    margin-top: 5px;
+    display: inline-block;
+}
+
+.send-circle {
+    position: absolute;
+    bottom: 25%;
+    right: 2%;
+    font-size: 50px;
+}
+
+.send-circle:hover {
+    color: #58b666;
+}
+
+.msg-box {
+    background-color: transparent;
+    border-radius: 25px;
+    margin-left: 10px;
+    width: 98%;
+    height: 80%;
+    border: none;
+    text-align: right;
+    padding-right: 100px;
+    font-size: medium;
+    font-family: 'Trebuchet MS';
+    color: white;
+}
+
+.msg-box:hover {
+    background-color: rgba(211, 211, 211, 0.192);
+}
+
+.answer-box {
+    width: 75%;
+    height: 20%;
+    position: absolute;
+    margin-left: 15px;
+    bottom: -12.5%;
+    border-radius: 30px;
+    background: darkolivegreen;
+}
+
+input {
+    font-family: 'Trebuchet MS';
+    background-color: rgb(255, 255, 255, 1);
+    padding: 5px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+label {
+    font-family: 'Trebuchet MS';
+    color: black;
+    font-size: medium;
+    display: inline;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.profile {
+    width: 50px;
+    height: 50px;
+}
+
+.badge {
+    top: -30px;
+    left: -11px;
 }

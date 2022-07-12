@@ -9,6 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InterfaceModule } from './interface/interface.module';
 import { ChatMiniatureComponent } from './interface/sidebar/chat-miniature/chat-miniature.component';
 import { HttpClientModule } from '@angular/common/http';
+import { WebsocketService } from './services/websocket.service';
+import { MessageService } from './services/message.service';
 
 @NgModule({
     declarations: [
@@ -25,7 +27,10 @@ import { HttpClientModule } from '@angular/common/http';
         HttpClientModule,
         FormsModule
     ],
-    providers: [],
+    providers: [
+        WebsocketService,
+        MessageService
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

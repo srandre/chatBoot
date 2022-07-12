@@ -7,6 +7,7 @@ import { MatCardModule } from '@angular/material/card'
 import { MatDividerModule } from '@angular/material/divider'
 import { MatTabsModule } from '@angular/material/tabs'
 import { MatButtonModule } from '@angular/material/button'
+import { MatBadgeModule } from '@angular/material/badge';
 
 @NgModule({
     declarations: [],
@@ -19,7 +20,8 @@ import { MatButtonModule } from '@angular/material/button'
         MatCardModule,
         MatDividerModule,
         MatTabsModule,
-        MatButtonModule
+        MatButtonModule,
+        MatBadgeModule
     ]
 })
 export class InterfaceModule { }

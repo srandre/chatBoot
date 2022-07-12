@@ -1,10 +1,56 @@
-<mat-sidenav mode="side" class="sidebar" opened>
-    <mat-action-list>
-        <div *ngFor="let message of chatList, let even = even">
-            <app-chat-miniature [lastMessage]="message" [even]="even"></app-chat-miniature>
-            <mat-divider class="divider">
-            </mat-divider>
+<div id="container">
+    <aside>
+        <header>
+            <input #newChat type="text" placeholder="New chat" (keyup)="findUser(newChat)">
+        </header>
+        <ul *ngIf="isSearching">
+            <li *ngFor="let _user of users" (click)="_newChat(_user, newChat)">
+                <img class="profile" src="{{'../../../../../assets/pfp2.jpg'}}" alt="">
+                <div>
+                    <h2>{{_user.name}}</h2>
+                    <h3>{{_user.email}}</h3>
+                </div>
+            </li>
+        </ul>
+        <ul *ngIf="!isSearching">
+            <li *ngFor="let chat of chats"
+                (click)="_openChat(chat.lastMessage.sender.email == user.email ? chat.lastMessage.receiver : chat.lastMessage.sender)">
+                <img class="profile" src="{{'../../../../../assets/pfp2.jpg'}}" alt=""><span class='badge'
+                    [matBadge]="chat.unread ? chat.unread : null"></span>
+                <div>
+                    <h2>{{chat.lastMessage.sender.email == user.email ? chat.lastMessage.receiver.name :
+                        chat.lastMessage.sender.name}}</h2>
+                    <h3>{{chat.lastMessage.getTimestamp('HH:mm')}}&nbsp;&nbsp;{{chat.lastMessage.text}}</h3>
+                </div>
+            </li>
+        </ul>
+    </aside>
+    <main>
+        <header *ngIf="openChat != null">
+            <img class="profile" src="{{'../../../../../assets/pfp2.jpg'}}" alt="">
+            <div>
+                <h2>{{openChat.name}}</h2>
+                <span>{{openChat.email}}</span>
+            </div>
+        </header>
+        <mat-divider></mat-divider>
+        <ul #scroller id="chat" *ngIf="openChat != null">
+            <li *ngFor="let message of messages; let i=index;"
+                [ngClass]="message.senderEmail === user.email ? 'me' : 'you'">
+                <div *ngIf="!(messages[i-1] && checkConsecutive(messages[i-1], message))" class="entete">
+                    <h3>{{message.getTimestamp()}}</h3>
+                </div>
+                <div *ngIf="!(messages[i-1] && checkConsecutive(messages[i-1], message))" class="triangle"></div>
+                <div class="message">
+                    {{message.text}}
+                </div>
+            </li>
+        </ul>
+        <mat-divider></mat-divider>
+        <div class="answer-box" *ngIf="openChat != null">
+            <input #messageInput type="text" class="msg-box text" (keyup.enter)="sendMessage(messageInput)">
+            <i (click)="sendMessage(messageInput)" class="fa-3x fas fa-chevron-circle-right send-circle"
+                style="cursor: pointer"></i>
         </div>
-        <div class="bottomText">chatBoot: a botinha brasileira!</div>
-    </mat-action-list>
-</mat-sidenav>
+    </main>
+</div>

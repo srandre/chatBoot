@@ -18,6 +18,15 @@ export class AppComponent {
 
     constructor(private auth: AuthService) { }
 
+    signout() {
+        this.user.signed = false;
+        this.user.name = "";
+        this.submitted = false;
+        this.password = "";
+        this.passwordConfirm = "";
+        this.choosingName = false;
+    }
+
     login() {
         this.submitted = true;
         if (!this.isValidEmail(this.user.email) || this.password.length == 0) {

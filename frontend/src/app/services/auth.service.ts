@@ -20,4 +20,8 @@ export class AuthService {
     changeName(user: any): Observable<any> {
         return this.http.post(`${baseUrl}/changeName`, user);
     }
+
+    getAll(): Observable<any> {
+        return this.http.post(`${baseUrl}/getAll`, null);
+    }
 }

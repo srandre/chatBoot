@@ -1,9 +1,12 @@
 <body>
-    <mat-toolbar class="bar">
+    <mat-toolbar class="bar" *ngIf="user.signed && !choosingName">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <div class="pfp-box">
             <div class="row">
-                <i class="far fa-user-circle fa-3x"></i>
-                <label class="name" *ngIf="user.signed && !choosingName">{{user.name}}</label>
+                <i class="far fa-user-circle fa-3x" style="font-size:50px;color:white;"></i>
+                <label class="name">{{user.name}}</label>
+                <i title="Sign out" (click)="signout()" class="fas fa-sign-out-alt signout"
+                    style="font-size:20px;color:white;"></i>
             </div>
         </div>
         <img class="logo" width="300px" src="../assets/logo.png">
@@ -11,7 +14,10 @@
     <div *ngIf="!user.signed" class="fullscreen blur">
         <div class="login-modal">
             <mat-tab-group *ngIf="!choosingName">
-                <mat-tab label="Entrar">
+                <mat-tab>
+                    <ng-template mat-tab-label>
+                        <label style="color: white;">Entrar</label>
+                    </ng-template>
                     <div class="col login">
                         <div class="row">
                             <i class="fa fas fa-at sprite"></i>
@@ -28,7 +34,10 @@
                         <button (click)="login()" mat-raised-button color="primary" class="login-button">Login</button>
                     </div>
                 </mat-tab>
-                <mat-tab label="Registrar">
+                <mat-tab>
+                    <ng-template mat-tab-label>
+                        <label style="color: white;">Registrar</label>
+                    </ng-template>
                     <div class="col register">
                         <div class="row">
                             <i class="fa fas fa-at sprite"></i>
@@ -56,7 +65,7 @@
             <div *ngIf="choosingName">
                 <div class="col choose-name">
                     <div class="row center-text">
-                        <label>Escolha um nome para seu perfil. Você pode alterar a qualquer
+                        <label>Escolha um nome para seu perfil.
                             hora!</label>
                     </div>
                     <div class="row">
@@ -71,6 +80,5 @@
     </div>
     <mat-sidenav-container *ngIf="user.signed" class="fullscreen">
         <app-sidebar [user]="user"></app-sidebar>
-        <app-chat-box [user]="user"></app-chat-box>
     </mat-sidenav-container>
 </body>

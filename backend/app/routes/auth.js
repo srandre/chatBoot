@@ -27,4 +27,9 @@ module.exports = async function (router) {
         let out = await user.changeName(req.body)
         return res.json(out)
     });
+
+    router.route('/getAll').post(async (req, res) => {
+        let out = await user.getAll()
+        return res.json(out)
+    })
 }

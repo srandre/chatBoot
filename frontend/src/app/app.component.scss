@@ -14,9 +14,22 @@
     border-radius: 10px;
     position: absolute;
     bottom: 30vh;
-    background-color: rgb(240, 255, 255, 0.6);
+    background-color: #3b3e49;
     display: flex;
     padding-left: 70px;
+    border-width: 1px;
+}
+
+.signout {
+    position: absolute;
+    margin-left: 40px;
+    margin-top: 15px;
+}
+
+.signout:hover {
+    border-radius: 50%;
+    background-color: rgb(240, 255, 255, 0.2);
+    cursor: pointer;
 }
 
 .login {
@@ -50,23 +63,24 @@
 }
 
 .pfp-box {
-    width: 240px;
-    height: 60px;
+    width: 20%;
+    height: 50px;
     border-radius: 30px;
     padding: 5px;
-    background-color: rgb(216, 241, 216);
+    background-color: #3b3e49;
     display: flex;
 }
 
 .bar {
-    height: auto;
+    height: 10%;
 }
 
 .name {
     position: relative;
-    bottom: 30%;
+    bottom: 27%;
     margin-left: 10px;
     font-size: large;
+    color: white;
 }
 
 .invalid {
@@ -81,7 +95,7 @@
 
 .logo {
     position: relative;
-    right: -60%;
+    right: -55%;
 }
 
 .name-button {
@@ -103,7 +117,7 @@ input {
 
 label {
     font-family: 'Trebuchet MS';
-    color: black;
+    color: white;
     font-size: medium;
     display: inline;
     text-align: right;
@@ -111,6 +125,7 @@ label {
 }
 
 body {
-    height: 90vh;
+    height: 100%;
     overflow: hidden !important;
+    color: white !important;
 }

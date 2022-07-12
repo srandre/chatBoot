@@ -23,7 +23,11 @@
         "express": "^4.18.1",
         "moment": "^2.29.3",
         "mysql2": "^2.3.3",
+        "piesocket-nodejs": "^1.1.0",
         "require-dir": "^1.2.0",
-        "sequelize": "^6.20.1"
+        "rxjs": "^7.5.5",
+        "sequelize": "^6.20.1",
+        "socket.io": "^4.5.1",
+        "websocket": "^1.0.34"
     }
 }

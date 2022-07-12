@@ -23,8 +23,12 @@
     "alertifyjs": "^1.13.1",
     "cors": "^2.8.5",
     "fontawesome-free": "^1.0.4",
+    "i": "^0.3.7",
     "moment": "^2.29.3",
-    "rxjs": "~7.5.0",
+    "ngx-socket-io": "^4.2.0",
+    "npm": "^8.13.2",
+    "piesocket-js": "^3.0.4",
+    "rxjs": "^7.5.5",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },

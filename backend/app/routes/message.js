@@ -15,4 +15,9 @@ module.exports = async function (router) {
         let out = await message.getMessages(req.body);
         return res.json(out);
     });
+
+    router.route('/markAsRead').post(async (req, res) => {
+        let out = await message.markAsRead(req.body);
+        return res.json(out);
+    });
 }
